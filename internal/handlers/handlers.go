@@ -52,7 +52,7 @@ func UploadHandler(response http.ResponseWriter, request *http.Request) {
 	defer file.Close()
 	content, err := io.ReadAll(file)
 	if err != nil {
-		http.Error(response, fmt.Sprintf("Не получается прочитать содержимое файла: %v", err), http.StatusInternalServerError)
+		http.Error(response, fmt.Sprintf("Не получается прочитать содержимое файла: %v", err), http.StatusBadRequest)
 		return
 	}
 	originalText := strings.TrimSpace(string(content))
