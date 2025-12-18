@@ -46,7 +46,7 @@ func UploadHandler(response http.ResponseWriter, request *http.Request) {
 	}
 	file, header, err := request.FormFile("myFile")
 	if err != nil {
-		http.Error(response, fmt.Sprintf("Не получается открыть файл: %v", err), http.StatusInternalServerError)
+		http.Error(response, fmt.Sprintf("Не получается открыть файл: %v", err), http.StatusBadRequest)
 		return
 	}
 	defer file.Close()
